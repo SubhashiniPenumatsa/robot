@@ -1,58 +1,845 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.9.1 on win32)" generated="20210219 00:07:18.111" rpa="false">
-<suite id="s1" name="Tests" source="C:\cygwin64\home\robot\Tests">
-<suite id="s1-s1" name="Webtest" source="C:\cygwin64\home\robot\Tests\webtest.robot">
-<test id="s1-s1-t1" name="User can access website">
+<robot generator="Robot 3.2.2 (Python 3.9.1 on win32)" generated="20210302 16:37:21.214" rpa="false">
+<suite id="s1" name="VGtest" source="C:\cygwin64\home\robot\Tests\VGtest.robot">
+<test id="s1-t1" name="User can do all navigation">
+<kw name="Begin Web Test" type="setup">
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
-<arg>about:blank</arg>
-<arg>chrome</arg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20210219 00:07:18.682" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20210219 00:07:18.682" endtime="20210219 00:07:20.559"></status>
+<msg timestamp="20210302 16:37:21.512" level="INFO">Opening browser 'chrome' to base url 'http://rental30.infotiv.net/'.</msg>
+<status status="PASS" starttime="20210302 16:37:21.512" endtime="20210302 16:37:24.220"></status>
 </kw>
-<kw name="Go To" library="SeleniumLibrary">
-<doc>Navigates the current browser window to the provided ``url``.</doc>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
 <arguments>
-<arg>https://www.willys.se/</arg>
+<arg>1</arg>
 </arguments>
-<msg timestamp="20210219 00:07:20.580" level="INFO">Opening url 'https://www.willys.se/'</msg>
-<status status="PASS" starttime="20210219 00:07:20.579" endtime="20210219 00:07:23.619"></status>
+<status status="PASS" starttime="20210302 16:37:24.221" endtime="20210302 16:37:24.221"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
-<arg>Handla billig mat online</arg>
+<arg>Infotiv Car Rental</arg>
 </arguments>
-<status status="PASS" starttime="20210219 00:07:23.621" endtime="20210219 00:07:24.061"></status>
+<status status="PASS" starttime="20210302 16:37:24.221" endtime="20210302 16:37:25.252"></status>
 </kw>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20210219 00:07:24.063" endtime="20210219 00:07:26.450"></status>
+<status status="PASS" starttime="20210302 16:37:21.512" endtime="20210302 16:37:25.252"></status>
 </kw>
-<doc>This is some basic info about the test</doc>
+<kw name="Given Begin Web Test">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20210302 16:37:25.253" level="INFO">Opening browser 'chrome' to base url 'http://rental30.infotiv.net/'.</msg>
+<status status="PASS" starttime="20210302 16:37:25.253" endtime="20210302 16:37:28.971"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:37:28.971" endtime="20210302 16:37:28.972"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Infotiv Car Rental</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:37:28.972" endtime="20210302 16:37:30.000"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:25.253" endtime="20210302 16:37:30.000"></status>
+</kw>
+<kw name="When Go To Web Page">
+<kw name="Load Page">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20210302 16:37:30.001" level="INFO">Opening url 'http://rental30.infotiv.net/'</msg>
+<status status="PASS" starttime="20210302 16:37:30.001" endtime="20210302 16:37:31.235"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:30.001" endtime="20210302 16:37:31.235"></status>
+</kw>
+<kw name="Verify Page Loaded">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>When do you want to make your trip?</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:37:31.236" endtime="20210302 16:37:32.262"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:31.235" endtime="20210302 16:37:32.262"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:30.001" endtime="20210302 16:37:32.263"></status>
+</kw>
+<kw name="Then Verify Login">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="email"]</arg>
+<arg>${USERID}</arg>
+</arguments>
+<msg timestamp="20210302 16:37:32.264" level="INFO">Typing text 'abc@info.com' into text field 'xpath://*[@id="email"]'.</msg>
+<status status="PASS" starttime="20210302 16:37:32.264" endtime="20210302 16:37:35.429"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="password"]</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20210302 16:37:35.430" level="INFO">Typing text 'test123' into text field 'xpath://*[@id="password"]'.</msg>
+<status status="PASS" starttime="20210302 16:37:35.429" endtime="20210302 16:37:38.553"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="login"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:37:38.554" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="login"] element.</msg>
+<msg timestamp="20210302 16:37:41.540" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:37:41.541" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:37:38.553" endtime="20210302 16:37:42.569"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:32.263" endtime="20210302 16:37:42.569"></status>
+</kw>
+<kw name="End Web Test">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20210302 16:37:42.570" endtime="20210302 16:37:48.916"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:42.570" endtime="20210302 16:37:48.917"></status>
+</kw>
+<kw name="End Web Test" type="teardown">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20210302 16:37:48.922" endtime="20210302 16:37:48.923"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:48.921" endtime="20210302 16:37:48.923"></status>
+</kw>
+<doc>This test checks the navigation</doc>
 <tags>
-<tag>Test 1</tag>
+<tag>checking login</tag>
 </tags>
-<status status="PASS" starttime="20210219 00:07:18.680" endtime="20210219 00:07:26.452" critical="yes"></status>
+<status status="PASS" starttime="20210302 16:37:21.511" endtime="20210302 16:37:48.925" critical="yes"></status>
+</test>
+<test id="s1-t2" name="User can book for the trip">
+<kw name="Begin Web Test" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20210302 16:37:48.935" level="INFO">Opening browser 'chrome' to base url 'http://rental30.infotiv.net/'.</msg>
+<status status="PASS" starttime="20210302 16:37:48.934" endtime="20210302 16:37:52.603"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:37:52.603" endtime="20210302 16:37:52.603"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Infotiv Car Rental</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:37:52.604" endtime="20210302 16:37:53.632"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:48.933" endtime="20210302 16:37:53.632"></status>
+</kw>
+<kw name="Given Begin Web Test">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20210302 16:37:53.634" level="INFO">Opening browser 'chrome' to base url 'http://rental30.infotiv.net/'.</msg>
+<status status="PASS" starttime="20210302 16:37:53.633" endtime="20210302 16:37:57.280"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:37:57.280" endtime="20210302 16:37:57.280"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Infotiv Car Rental</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:37:57.281" endtime="20210302 16:37:58.298"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:53.633" endtime="20210302 16:37:58.298"></status>
+</kw>
+<kw name="When Go To Web Page">
+<kw name="Load Page">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20210302 16:37:58.299" level="INFO">Opening url 'http://rental30.infotiv.net/'</msg>
+<status status="PASS" starttime="20210302 16:37:58.299" endtime="20210302 16:37:59.530"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:58.299" endtime="20210302 16:37:59.530"></status>
+</kw>
+<kw name="Verify Page Loaded">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>When do you want to make your trip?</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:37:59.531" endtime="20210302 16:38:00.561"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:59.530" endtime="20210302 16:38:00.561"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:37:58.299" endtime="20210302 16:38:00.561"></status>
+</kw>
+<kw name="Then trip book">
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="reset"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:38:00.563" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="reset"] element.</msg>
+<msg timestamp="20210302 16:38:03.145" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:38:03.145" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:38:00.562" endtime="20210302 16:38:04.164"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="start"]</arg>
+<arg>0303</arg>
+</arguments>
+<msg timestamp="20210302 16:38:04.164" level="INFO">Typing text '0303' into text field 'xpath://*[@id="start"]'.</msg>
+<status status="PASS" starttime="20210302 16:38:04.164" endtime="20210302 16:38:07.399"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="end"]</arg>
+<arg>0304</arg>
+</arguments>
+<msg timestamp="20210302 16:38:07.401" level="INFO">Typing text '0304' into text field 'xpath://*[@id="end"]'.</msg>
+<status status="PASS" starttime="20210302 16:38:07.400" endtime="20210302 16:38:10.628"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="continue"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:38:10.630" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="continue"] element.</msg>
+<msg timestamp="20210302 16:38:13.675" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:38:13.676" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:38:10.629" endtime="20210302 16:38:14.702"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:38:00.562" endtime="20210302 16:38:14.703"></status>
+</kw>
+<kw name="End Web Test">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20210302 16:38:14.706" endtime="20210302 16:38:21.074"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:38:14.705" endtime="20210302 16:38:21.075"></status>
+</kw>
+<kw name="End Web Test" type="teardown">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20210302 16:38:21.076" endtime="20210302 16:38:21.077"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:38:21.076" endtime="20210302 16:38:21.077"></status>
+</kw>
+<doc>This test checks the book for the trip</doc>
+<tags>
+<tag>Booking trip</tag>
+</tags>
+<status status="PASS" starttime="20210302 16:37:48.930" endtime="20210302 16:38:21.078" critical="yes"></status>
+</test>
+<test id="s1-t3" name="User can book car">
+<kw name="Begin Web Test" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20210302 16:38:21.086" level="INFO">Opening browser 'chrome' to base url 'http://rental30.infotiv.net/'.</msg>
+<status status="PASS" starttime="20210302 16:38:21.086" endtime="20210302 16:38:24.719"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:38:24.719" endtime="20210302 16:38:24.719"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Infotiv Car Rental</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:38:24.719" endtime="20210302 16:38:25.744"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:38:21.084" endtime="20210302 16:38:25.745"></status>
+</kw>
+<kw name="Given Begin Web Test">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20210302 16:38:25.749" level="INFO">Opening browser 'chrome' to base url 'http://rental30.infotiv.net/'.</msg>
+<status status="PASS" starttime="20210302 16:38:25.748" endtime="20210302 16:38:31.163"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:38:31.163" endtime="20210302 16:38:31.163"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Infotiv Car Rental</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:38:31.164" endtime="20210302 16:38:32.188"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:38:25.747" endtime="20210302 16:38:32.188"></status>
+</kw>
+<kw name="When Go To Web Page">
+<kw name="Load Page">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20210302 16:38:32.190" level="INFO">Opening url 'http://rental30.infotiv.net/'</msg>
+<status status="PASS" starttime="20210302 16:38:32.190" endtime="20210302 16:38:33.444"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:38:32.189" endtime="20210302 16:38:33.444"></status>
+</kw>
+<kw name="Verify Page Loaded">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>When do you want to make your trip?</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:38:33.445" endtime="20210302 16:38:34.469"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:38:33.444" endtime="20210302 16:38:34.469"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:38:32.189" endtime="20210302 16:38:34.469"></status>
+</kw>
+<kw name="Then Verify login">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="email"]</arg>
+<arg>${USERID}</arg>
+</arguments>
+<msg timestamp="20210302 16:38:34.471" level="INFO">Typing text 'abc@info.com' into text field 'xpath://*[@id="email"]'.</msg>
+<status status="PASS" starttime="20210302 16:38:34.470" endtime="20210302 16:38:37.644"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="password"]</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20210302 16:38:37.646" level="INFO">Typing text 'test123' into text field 'xpath://*[@id="password"]'.</msg>
+<status status="PASS" starttime="20210302 16:38:37.645" endtime="20210302 16:38:40.880"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="login"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:38:40.882" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="login"] element.</msg>
+<msg timestamp="20210302 16:38:43.869" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:38:43.870" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:38:40.881" endtime="20210302 16:38:44.899"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:38:34.470" endtime="20210302 16:38:44.900"></status>
+</kw>
+<kw name="Then trip book">
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="reset"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:38:44.904" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="reset"] element.</msg>
+<msg timestamp="20210302 16:38:47.515" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:38:47.516" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:38:44.903" endtime="20210302 16:38:48.544"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="start"]</arg>
+<arg>0303</arg>
+</arguments>
+<msg timestamp="20210302 16:38:48.545" level="INFO">Typing text '0303' into text field 'xpath://*[@id="start"]'.</msg>
+<status status="PASS" starttime="20210302 16:38:48.545" endtime="20210302 16:38:51.771"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="end"]</arg>
+<arg>0304</arg>
+</arguments>
+<msg timestamp="20210302 16:38:51.773" level="INFO">Typing text '0304' into text field 'xpath://*[@id="end"]'.</msg>
+<status status="PASS" starttime="20210302 16:38:51.772" endtime="20210302 16:38:55.003"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="continue"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:38:55.006" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="continue"] element.</msg>
+<msg timestamp="20210302 16:38:58.038" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:38:58.039" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:38:55.004" endtime="20210302 16:38:59.066"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:38:44.902" endtime="20210302 16:38:59.067"></status>
+</kw>
+<kw name="Then book car">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-list-1"]/button/span</arg>
+</arguments>
+<msg timestamp="20210302 16:38:59.070" level="INFO">Clicking element 'xpath=//*[@id="ms-list-1"]/button/span'.</msg>
+<status status="PASS" starttime="20210302 16:38:59.070" endtime="20210302 16:39:01.165"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-opt-1"]</arg>
+</arguments>
+<msg timestamp="20210302 16:39:01.166" level="INFO">Selecting checkbox 'xpath=//*[@id="ms-opt-1"]'.</msg>
+<status status="PASS" starttime="20210302 16:39:01.166" endtime="20210302 16:39:06.404"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-list-1"]/button/span</arg>
+</arguments>
+<msg timestamp="20210302 16:39:06.406" level="INFO">Clicking element 'xpath=//*[@id="ms-list-1"]/button/span'.</msg>
+<status status="PASS" starttime="20210302 16:39:06.405" endtime="20210302 16:39:08.482"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-list-2"]/button/span</arg>
+</arguments>
+<msg timestamp="20210302 16:39:08.484" level="INFO">Clicking element 'xpath=//*[@id="ms-list-2"]/button/span'.</msg>
+<status status="PASS" starttime="20210302 16:39:08.483" endtime="20210302 16:39:10.598"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-opt-5"]</arg>
+</arguments>
+<msg timestamp="20210302 16:39:10.599" level="INFO">Selecting checkbox 'xpath=//*[@id="ms-opt-5"]'.</msg>
+<status status="PASS" starttime="20210302 16:39:10.599" endtime="20210302 16:39:15.820"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-list-2"]/button/span</arg>
+</arguments>
+<msg timestamp="20210302 16:39:15.822" level="INFO">Clicking element 'xpath=//*[@id="ms-list-2"]/button/span'.</msg>
+<status status="PASS" starttime="20210302 16:39:15.821" endtime="20210302 16:39:17.926"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="carSelect1"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:39:17.929" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="carSelect1"] element.</msg>
+<msg timestamp="20210302 16:39:20.803" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:39:20.803" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:39:17.927" endtime="20210302 16:39:21.834"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:38:59.068" endtime="20210302 16:39:21.835"></status>
+</kw>
+<kw name="End Web Test">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20210302 16:39:21.837" endtime="20210302 16:39:28.187"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:39:21.836" endtime="20210302 16:39:28.187"></status>
+</kw>
+<kw name="End Web Test" type="teardown">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20210302 16:39:28.190" endtime="20210302 16:39:28.191"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:39:28.189" endtime="20210302 16:39:28.192"></status>
+</kw>
+<doc>This test checks the car</doc>
+<tags>
+<tag>Booking car</tag>
+</tags>
+<status status="PASS" starttime="20210302 16:38:21.083" endtime="20210302 16:39:28.194" critical="yes"></status>
+</test>
+<test id="s1-t4" name="User can make payment">
+<kw name="Begin Web Test" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20210302 16:39:28.204" level="INFO">Opening browser 'chrome' to base url 'http://rental30.infotiv.net/'.</msg>
+<status status="PASS" starttime="20210302 16:39:28.202" endtime="20210302 16:39:31.824"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:39:31.824" endtime="20210302 16:39:31.824"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Infotiv Car Rental</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:39:31.825" endtime="20210302 16:39:32.852"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:39:28.201" endtime="20210302 16:39:32.853"></status>
+</kw>
+<kw name="Given Begin Web Test">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20210302 16:39:32.855" level="INFO">Opening browser 'chrome' to base url 'http://rental30.infotiv.net/'.</msg>
+<status status="PASS" starttime="20210302 16:39:32.855" endtime="20210302 16:39:36.316"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:39:36.316" endtime="20210302 16:39:36.316"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Infotiv Car Rental</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:39:36.317" endtime="20210302 16:39:37.347"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:39:32.854" endtime="20210302 16:39:37.347"></status>
+</kw>
+<kw name="When Go To Web Page">
+<kw name="Load Page">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20210302 16:39:37.349" level="INFO">Opening url 'http://rental30.infotiv.net/'</msg>
+<status status="PASS" starttime="20210302 16:39:37.348" endtime="20210302 16:39:38.596"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:39:37.348" endtime="20210302 16:39:38.596"></status>
+</kw>
+<kw name="Verify Page Loaded">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>When do you want to make your trip?</arg>
+</arguments>
+<status status="PASS" starttime="20210302 16:39:38.597" endtime="20210302 16:39:39.612"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:39:38.596" endtime="20210302 16:39:39.612"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:39:37.348" endtime="20210302 16:39:39.612"></status>
+</kw>
+<kw name="Then Verify login">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="email"]</arg>
+<arg>${USERID}</arg>
+</arguments>
+<msg timestamp="20210302 16:39:39.614" level="INFO">Typing text 'abc@info.com' into text field 'xpath://*[@id="email"]'.</msg>
+<status status="PASS" starttime="20210302 16:39:39.614" endtime="20210302 16:39:42.765"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="password"]</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20210302 16:39:42.765" level="INFO">Typing text 'test123' into text field 'xpath://*[@id="password"]'.</msg>
+<status status="PASS" starttime="20210302 16:39:42.765" endtime="20210302 16:39:45.886"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="login"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:39:45.888" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="login"] element.</msg>
+<msg timestamp="20210302 16:39:48.809" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:39:48.810" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:39:45.887" endtime="20210302 16:39:49.838"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:39:39.613" endtime="20210302 16:39:49.839"></status>
+</kw>
+<kw name="Then trip book">
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="reset"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:39:49.845" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="reset"] element.</msg>
+<msg timestamp="20210302 16:39:52.439" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:39:52.440" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:39:49.843" endtime="20210302 16:39:53.464"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="start"]</arg>
+<arg>0303</arg>
+</arguments>
+<msg timestamp="20210302 16:39:53.465" level="INFO">Typing text '0303' into text field 'xpath://*[@id="start"]'.</msg>
+<status status="PASS" starttime="20210302 16:39:53.465" endtime="20210302 16:39:56.708"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="end"]</arg>
+<arg>0304</arg>
+</arguments>
+<msg timestamp="20210302 16:39:56.710" level="INFO">Typing text '0304' into text field 'xpath://*[@id="end"]'.</msg>
+<status status="PASS" starttime="20210302 16:39:56.709" endtime="20210302 16:39:59.929"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="continue"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:39:59.932" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="continue"] element.</msg>
+<msg timestamp="20210302 16:40:02.949" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:40:02.950" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:39:59.930" endtime="20210302 16:40:03.978"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:39:49.840" endtime="20210302 16:40:03.979"></status>
+</kw>
+<kw name="Then book car">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-list-1"]/button/span</arg>
+</arguments>
+<msg timestamp="20210302 16:40:03.982" level="INFO">Clicking element 'xpath=//*[@id="ms-list-1"]/button/span'.</msg>
+<status status="PASS" starttime="20210302 16:40:03.981" endtime="20210302 16:40:06.097"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-opt-1"]</arg>
+</arguments>
+<msg timestamp="20210302 16:40:06.098" level="INFO">Selecting checkbox 'xpath=//*[@id="ms-opt-1"]'.</msg>
+<status status="PASS" starttime="20210302 16:40:06.098" endtime="20210302 16:40:11.282"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-list-1"]/button/span</arg>
+</arguments>
+<msg timestamp="20210302 16:40:11.284" level="INFO">Clicking element 'xpath=//*[@id="ms-list-1"]/button/span'.</msg>
+<status status="PASS" starttime="20210302 16:40:11.283" endtime="20210302 16:40:13.422"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-list-2"]/button/span</arg>
+</arguments>
+<msg timestamp="20210302 16:40:13.424" level="INFO">Clicking element 'xpath=//*[@id="ms-list-2"]/button/span'.</msg>
+<status status="PASS" starttime="20210302 16:40:13.423" endtime="20210302 16:40:15.513"></status>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-opt-5"]</arg>
+</arguments>
+<msg timestamp="20210302 16:40:15.515" level="INFO">Selecting checkbox 'xpath=//*[@id="ms-opt-5"]'.</msg>
+<status status="PASS" starttime="20210302 16:40:15.514" endtime="20210302 16:40:20.775"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="ms-list-2"]/button/span</arg>
+</arguments>
+<msg timestamp="20210302 16:40:20.778" level="INFO">Clicking element 'xpath=//*[@id="ms-list-2"]/button/span'.</msg>
+<status status="PASS" starttime="20210302 16:40:20.776" endtime="20210302 16:40:22.876"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="carSelect1"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:40:22.878" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="carSelect1"] element.</msg>
+<msg timestamp="20210302 16:40:25.755" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:40:25.756" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:40:22.877" endtime="20210302 16:40:26.785"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:40:03.980" endtime="20210302 16:40:26.786"></status>
+</kw>
+<kw name="Then card payment">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="cardNum"]</arg>
+<arg>2345679832547628</arg>
+</arguments>
+<msg timestamp="20210302 16:40:26.789" level="INFO">Typing text '2345679832547628' into text field 'xpath://*[@id="cardNum"]'.</msg>
+<status status="PASS" starttime="20210302 16:40:26.788" endtime="20210302 16:40:30.060"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="fullName"]</arg>
+<arg>Subhashini</arg>
+</arguments>
+<msg timestamp="20210302 16:40:30.061" level="INFO">Typing text 'Subhashini' into text field 'xpath://*[@id="fullName"]'.</msg>
+<status status="PASS" starttime="20210302 16:40:30.060" endtime="20210302 16:40:33.284"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="confirmSelection"]/form/select[1]</arg>
+</arguments>
+<msg timestamp="20210302 16:40:33.286" level="INFO">Clicking element 'xpath=//*[@id="confirmSelection"]/form/select[1]'.</msg>
+<status status="PASS" starttime="20210302 16:40:33.285" endtime="20210302 16:40:35.482"></status>
+</kw>
+<kw name="Select From List By Index" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<arguments>
+<arg>xpath=//*[@id="confirmSelection"]/form/select[1]</arg>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20210302 16:40:35.484" level="INFO">Selecting options from selection list 'xpath=//*[@id="confirmSelection"]/form/select[1]' by index 5.</msg>
+<status status="PASS" starttime="20210302 16:40:35.483" endtime="20210302 16:40:48.903"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="confirmSelection"]/form/select[2]</arg>
+</arguments>
+<msg timestamp="20210302 16:40:48.905" level="INFO">Clicking element 'xpath=//*[@id="confirmSelection"]/form/select[2]'.</msg>
+<status status="PASS" starttime="20210302 16:40:48.904" endtime="20210302 16:40:51.052"></status>
+</kw>
+<kw name="Select From List By Index" library="SeleniumLibrary">
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<arguments>
+<arg>xpath=//*[@id="confirmSelection"]/form/select[2]</arg>
+<arg>4</arg>
+</arguments>
+<msg timestamp="20210302 16:40:51.054" level="INFO">Selecting options from selection list 'xpath=//*[@id="confirmSelection"]/form/select[2]' by index 4.</msg>
+<status status="PASS" starttime="20210302 16:40:51.053" endtime="20210302 16:41:03.377"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//*[@id="cvc"]</arg>
+<arg>311</arg>
+</arguments>
+<msg timestamp="20210302 16:41:03.379" level="INFO">Typing text '311' into text field 'xpath=//*[@id="cvc"]'.</msg>
+<status status="PASS" starttime="20210302 16:41:03.378" endtime="20210302 16:41:06.617"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath=//*[@id="confirm"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:41:06.618" level="INFO">Sending key(s) ('RETURN',) to xpath=//*[@id="confirm"] element.</msg>
+<msg timestamp="20210302 16:41:09.265" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:41:09.266" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:41:06.617" endtime="20210302 16:41:10.293"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath://*[@id="mypage"]</arg>
+<arg>RETURN</arg>
+</arguments>
+<msg timestamp="20210302 16:41:10.296" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id="mypage"] element.</msg>
+<msg timestamp="20210302 16:41:12.923" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20210302 16:41:12.924" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210302 16:41:10.294" endtime="20210302 16:41:13.952"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:40:26.787" endtime="20210302 16:41:13.953"></status>
+</kw>
+<kw name="End Web Test">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20210302 16:41:13.956" endtime="20210302 16:41:20.330"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:41:13.954" endtime="20210302 16:41:20.331"></status>
+</kw>
+<kw name="End Web Test" type="teardown">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20210302 16:41:20.333" endtime="20210302 16:41:20.334"></status>
+</kw>
+<status status="PASS" starttime="20210302 16:41:20.332" endtime="20210302 16:41:20.335"></status>
+</kw>
+<doc>This test checks the payment</doc>
+<tags>
+<tag>Making payment</tag>
+</tags>
+<status status="PASS" starttime="20210302 16:39:28.198" endtime="20210302 16:41:20.336" critical="yes"></status>
 </test>
 <doc>This is some basic infor about the whole test suite</doc>
-<status status="PASS" starttime="20210219 00:07:18.153" endtime="20210219 00:07:26.459"></status>
-</suite>
-<status status="PASS" starttime="20210219 00:07:18.115" endtime="20210219 00:07:26.473"></status>
+<status status="PASS" starttime="20210302 16:37:21.217" endtime="20210302 16:41:20.343"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="4" fail="0">Critical Tests</stat>
+<stat pass="4" fail="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0">Test 1</stat>
+<stat pass="1" fail="0">Booking car</stat>
+<stat pass="1" fail="0">Booking trip</stat>
+<stat pass="1" fail="0">checking login</stat>
+<stat pass="1" fail="0">Making payment</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Tests">Tests</stat>
-<stat pass="1" fail="0" id="s1-s1" name="Webtest">Tests.Webtest</stat>
+<stat pass="4" fail="0" id="s1" name="VGtest">VGtest</stat>
 </suite>
 </statistics>
 <errors>
