@@ -12,15 +12,13 @@ ${PASSWORD}                     test123
 ${SIGNINMESSAGE}                You are signed in
 ${CARSELECTPAGE}                What would you like to drive
 ${CONFIRMBOOK}                  Confirm booking
-${CONFIRMBOOKMESSAGE}           is now ready for pickup
-${STARTDATE}
-${CURRENTDATE}
+
 
 
 *** Keywords ***
 Given User on the Infotivcar homepage
     Open browser                 ${URL}    ${BROWSER}
-    #set selenium speed          1
+    set selenium speed          1
     Wait until Page Contains    Infotiv Car Rental
 
 When User enters valid email and password
@@ -31,19 +29,13 @@ And User clicks the Login button
     Press Keys    xpath://*[@id="login"]      RETURN
 
 Then User is logged in
-     page should contain   ${SIGNINMESSAGE}
-
+    element should contain  xpath://*[@id="welcomePhrase"]  ${SIGNINMESSAGE}
 
 User enters valid dates to book car
      Press Keys    xpath://*[@id="reset"]     RETURN
-     ${d}=  get current date
-     ${CURRENTDATE}=  add time to date  (${d},  7)   result_format=%m%d
-     ${STARTDATE}=  add time to date
-     log    ${CURRENTDATE}
-     input text    xpath://*[@id="start"]     ${CURRENTDATE}
+     input text    xpath://*[@id="start"]      0323
 
      input text    xpath://*[@id="end"]        0324
-     ${STARTDATE}=  get value     xpath://*[@id="start"]
 
 User clicks the continue button
 
@@ -79,11 +71,6 @@ User enters valid card payment details
 User clicks the Confirm booking
     press keys       xpath=//*[@id="confirm"]   RETURN
 
-verify confirm booking
-   wait until page contains element  xpath://*[@id="questionTextSmall"]
-   page should contain        ${CONFIRMBOOKMESSAGE}
-   page should contain         ${STARTDATE}
-
 
 User Can view bookings on Mypage
     press keys       xpath://*[@id="mypage"]    RETURN
@@ -94,9 +81,46 @@ End Web Test
 
 
 *** Test Cases ***
-User can book a car
-      [Documentation]   This test verifies end to end functionality of book a car
-      [Tags]            Booking  a car
+User can do all navigation
+    [Documentation]                   This test checks the navigation
+    [Tags]                            checking login
+    Given User on the Infotivcar homepage
+    When User enters valid email and password
+    And User clicks the Login button
+    Then User is logged in
+    End Web Test
+
+User can book for the trip
+     [Documentation]             This test checks the book for the trip
+     [Tags]                      Booking trip
+     Given User on the Infotivcar homepage
+     When User enters valid email and password
+     And User clicks the Login button
+     Then User is logged in
+     User enters valid dates to book car
+     User clicks the continue button
+     User on the car selection page
+     End Web Test
+
+
+User can book car
+     [Documentation]             This test checks the car
+     [Tags]                      Booking car
+     Given User on the Infotivcar homepage
+     When User enters valid email and password
+     And User clicks the Login button
+     Then User is logged in
+     User enters valid dates to book car
+     User clicks the continue button
+     User selects the Make and Number Of Passengers To Book Car
+     User clicks the Book button
+     User on the Confirm book page
+     End Web Test
+
+
+User
+     [Documentation]      This test verifies end to end functionality of book a car
+     [Tags]               Booking  a car
      Given User on the Infotivcar homepage
      When User enters valid email and password
      And User clicks the Login button

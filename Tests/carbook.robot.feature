@@ -8,21 +8,22 @@ Feature: Infotiv car rental website testing
 
     Scenario:
       Given User on the Infotivcar homepage
-    When  User enters valid dates
+    When  User enters valid dates to book car
     And User clicks the continue button
-    Then User on the Show car page
+    Then User on the car selection page
 
-      Scenario:
-      Given User on the Show car page
-    When  User selects the dropdown of Make and Passengers list
+    Scenario:
+      Given User on the car selection page
+    When  User selects the Make and Number Of Passengers To Book Car
     And User clicks the Book button
     Then User on the Confirm book page
 
-        Scenario:
+    Scenario:
       Given User on the Confirm book page
-    When  User enters valid card details
-    And User clicks the Confirm button
+    When  User enters valid card payment details
+    And User clicks the Confirm booking
     Then User car is booked
+    Then User Can view bookings on Mypage
 
 
 
