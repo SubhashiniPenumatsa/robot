@@ -10,7 +10,7 @@ ${URL}                          http://rental30.infotiv.net/
 ${USERID}                       abc@info.com
 ${PASSWORD}                     test123
 ${SIGNINMESSAGE}                You are signed in
-${CARSELECTPAGE}                What would you like to drive
+${CARSELECTPAGE}                When do you want to make your trip
 
 *** Keywords ***
 Begin Web Test
