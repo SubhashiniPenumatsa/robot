@@ -50,8 +50,6 @@ User clicks the continue button
 
      Press Keys    xpath://*[@id="continue"]   RETURN
 
-User on the car selection page
-     element should contain  xpath://*[@id="questionText"]  ${CARSELECTPAGE}
 
 
 User selects the Make and Number Of Passengers To Book Car
